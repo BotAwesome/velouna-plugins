@@ -1,0 +1,483 @@
+{
+  "id": "dev.botawesome.velounizer",
+  "name": "Velounizer",
+  "description": {
+    "de": "Tinte, Aurora und Kontur: Bilder, die deiner Musik folgen",
+    "en": "Ink, Aurora and Contour: visuals that follow your music"
+  },
+  "version": "0.1.0",
+  "kind": "visualizer",
+  "api": 1,
+  "velouna": ">=0.2.1",
+  "author": "BotAwesome",
+  "license": "GPL-3.0-or-later",
+  "permissions": [],
+  "visualizer": {
+    "needs": "song",
+    "presets": [
+      {
+        "id": "ink",
+        "name": {
+          "de": "Tinte",
+          "en": "Ink"
+        },
+        "score": "ink/score.lua",
+        "passes": [
+          {
+            "id": "sim",
+            "shader": "ink/sim.glsl",
+            "scale": 0.5,
+            "format": "rgba16f",
+            "feedback": true,
+            "rate": "step"
+          },
+          {
+            "id": "scene",
+            "shader": "ink/draw.glsl",
+            "inputs": [
+              "sim"
+            ]
+          }
+        ],
+        "params": [
+          {
+            "id": "size",
+            "label": {
+              "de": "Tropfengröße",
+              "en": "Drop size"
+            },
+            "min": 0.3,
+            "max": 2.5,
+            "default": 1.0
+          },
+          {
+            "id": "life",
+            "label": {
+              "de": "Lebensdauer (s)",
+              "en": "Lifetime (s)"
+            },
+            "min": 3.0,
+            "max": 40.0,
+            "default": 14.0
+          },
+          {
+            "id": "flow",
+            "label": {
+              "de": "Strömung",
+              "en": "Current"
+            },
+            "min": 0.0,
+            "max": 3.0,
+            "default": 1.0
+          },
+          {
+            "id": "combs",
+            "label": {
+              "de": "Kämme und Striche",
+              "en": "Combs and strokes"
+            },
+            "min": 0.0,
+            "max": 2.5,
+            "default": 1.0
+          },
+          {
+            "id": "vortex",
+            "label": {
+              "de": "Wirbel",
+              "en": "Vortices"
+            },
+            "min": 0.0,
+            "max": 2.5,
+            "default": 1.0
+          },
+          {
+            "id": "start",
+            "label": {
+              "de": "Startmuster",
+              "en": "Start pattern"
+            },
+            "min": 0.0,
+            "max": 2.5,
+            "default": 1.0
+          },
+          {
+            "id": "gloss",
+            "label": {
+              "de": "Glanz",
+              "en": "Gloss"
+            },
+            "min": 0.0,
+            "max": 1.5,
+            "default": 0.4
+          },
+          {
+            "id": "edges",
+            "label": {
+              "de": "Kanten",
+              "en": "Edges"
+            },
+            "min": 0.0,
+            "max": 1.5,
+            "default": 0.6
+          }
+        ],
+        "palettes": [
+          {
+            "name": {
+              "de": "Mitternacht",
+              "en": "Midnight"
+            },
+            "colors": [
+              "#080a13",
+              "#141b32",
+              "#e4dac4",
+              "#5c6c9c",
+              "#2c3868",
+              "#ee6a32",
+              "#f0e8d6"
+            ]
+          },
+          {
+            "name": "Koi",
+            "colors": [
+              "#0a0808",
+              "#1e1210",
+              "#f0e8dc",
+              "#ce3e2e",
+              "#403c42",
+              "#ffb040",
+              "#f6eee2"
+            ]
+          },
+          {
+            "name": "Jade",
+            "colors": [
+              "#050d0e",
+              "#0c2021",
+              "#cee8d8",
+              "#409c86",
+              "#1c4c52",
+              "#f2c65c",
+              "#e8f4ec"
+            ]
+          },
+          {
+            "name": {
+              "de": "Papier",
+              "en": "Paper"
+            },
+            "colors": [
+              "#e2dbcb",
+              "#cec4b0",
+              "#1a1e2e",
+              "#842c26",
+              "#4a5e80",
+              "#d05224",
+              "#16161e"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aurora",
+        "name": "Aurora",
+        "score": "ripples.lua",
+        "passes": [
+          {
+            "id": "scene",
+            "shader": "aurora/draw.glsl"
+          }
+        ],
+        "params": [
+          {
+            "id": "size",
+            "label": {
+              "de": "Größe",
+              "en": "Size"
+            },
+            "min": 0.4,
+            "max": 2.5,
+            "default": 1.0
+          },
+          {
+            "id": "warp",
+            "label": {
+              "de": "Verwirbelung",
+              "en": "Warp"
+            },
+            "min": 0.0,
+            "max": 2.5,
+            "default": 1.0
+          },
+          {
+            "id": "speed",
+            "label": {
+              "de": "Tempo",
+              "en": "Speed"
+            },
+            "min": 0.0,
+            "max": 3.0,
+            "default": 1.0
+          },
+          {
+            "id": "stars",
+            "label": {
+              "de": "Sterne",
+              "en": "Stars"
+            },
+            "min": 0.0,
+            "max": 1.5,
+            "default": 0.8
+          },
+          {
+            "id": "rays",
+            "label": {
+              "de": "Strahlen",
+              "en": "Rays"
+            },
+            "min": 0.0,
+            "max": 1.5,
+            "default": 0.8
+          },
+          {
+            "id": "glow",
+            "label": {
+              "de": "Leuchten",
+              "en": "Glow"
+            },
+            "min": 0.2,
+            "max": 2.5,
+            "default": 1.0
+          },
+          {
+            "id": "horizon",
+            "label": {
+              "de": "Horizont",
+              "en": "Horizon"
+            },
+            "min": 0.0,
+            "max": 1.0,
+            "default": 0.55
+          },
+          {
+            "id": "ripples",
+            "label": {
+              "de": "Ringwellen",
+              "en": "Ripples"
+            },
+            "min": 0.0,
+            "max": 2.5,
+            "default": 1.0
+          }
+        ],
+        "palettes": [
+          {
+            "name": {
+              "de": "Nordlicht",
+              "en": "Northern lights"
+            },
+            "colors": [
+              "#03060e",
+              "#0a1628",
+              "#2ce0a0",
+              "#4080ff",
+              "#ba5cff",
+              "#ffeec4",
+              "#ecf2ff"
+            ]
+          },
+          {
+            "name": {
+              "de": "Glut",
+              "en": "Ember"
+            },
+            "colors": [
+              "#0a0406",
+              "#220910",
+              "#ff6028",
+              "#ff2c70",
+              "#ffc85c",
+              "#fff8e4",
+              "#fff2e8"
+            ]
+          },
+          {
+            "name": {
+              "de": "Eis",
+              "en": "Ice"
+            },
+            "colors": [
+              "#02060c",
+              "#0a1a2c",
+              "#76c8ff",
+              "#cef2ff",
+              "#405cd2",
+              "#ffffff",
+              "#ecf6ff"
+            ]
+          },
+          {
+            "name": "Synthwave",
+            "colors": [
+              "#080414",
+              "#200a36",
+              "#ff3cb4",
+              "#50dcff",
+              "#8c54ff",
+              "#ffe478",
+              "#fff0fc"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "contour",
+        "name": {
+          "de": "Kontur",
+          "en": "Contour"
+        },
+        "score": "ripples.lua",
+        "passes": [
+          {
+            "id": "scene",
+            "shader": "contour/draw.glsl"
+          }
+        ],
+        "params": [
+          {
+            "id": "lines",
+            "label": {
+              "de": "Linien",
+              "en": "Lines"
+            },
+            "min": 8.0,
+            "max": 64.0,
+            "default": 28.0
+          },
+          {
+            "id": "width",
+            "label": {
+              "de": "Linienstärke",
+              "en": "Line width"
+            },
+            "min": 0.4,
+            "max": 3.0,
+            "default": 1.2
+          },
+          {
+            "id": "relief",
+            "label": {
+              "de": "Relief",
+              "en": "Relief"
+            },
+            "min": 0.0,
+            "max": 1.5,
+            "default": 0.7
+          },
+          {
+            "id": "scale",
+            "label": {
+              "de": "Maßstab",
+              "en": "Scale"
+            },
+            "min": 0.4,
+            "max": 2.5,
+            "default": 1.0
+          },
+          {
+            "id": "drift",
+            "label": {
+              "de": "Drift",
+              "en": "Drift"
+            },
+            "min": 0.0,
+            "max": 3.0,
+            "default": 1.0
+          },
+          {
+            "id": "fill",
+            "label": {
+              "de": "Füllung",
+              "en": "Fill"
+            },
+            "min": 0.0,
+            "max": 1.5,
+            "default": 0.6
+          },
+          {
+            "id": "ripples",
+            "label": {
+              "de": "Ringwellen",
+              "en": "Ripples"
+            },
+            "min": 0.0,
+            "max": 2.5,
+            "default": 1.0
+          }
+        ],
+        "palettes": [
+          {
+            "name": {
+              "de": "Smaragd",
+              "en": "Emerald"
+            },
+            "colors": [
+              "#030a08",
+              "#081813",
+              "#103428",
+              "#3ad694",
+              "#b0ffd6",
+              "#ff7a3c",
+              "#e2ffee"
+            ]
+          },
+          {
+            "name": {
+              "de": "Blaupause",
+              "en": "Blueprint"
+            },
+            "colors": [
+              "#07132e",
+              "#0e244e",
+              "#1a3a6c",
+              "#8cbeff",
+              "#ecf6ff",
+              "#ffd250",
+              "#f0f8ff"
+            ]
+          },
+          {
+            "name": {
+              "de": "Kupfer",
+              "en": "Copper"
+            },
+            "colors": [
+              "#0d0806",
+              "#20130c",
+              "#3a2115",
+              "#d48450",
+              "#ffdeb8",
+              "#74dcff",
+              "#ffeede"
+            ]
+          },
+          {
+            "name": {
+              "de": "Monochrom",
+              "en": "Monochrome"
+            },
+            "colors": [
+              "#09090a",
+              "#18181a",
+              "#26262a",
+              "#a8a8ac",
+              "#fafafa",
+              "#ff4646",
+              "#f5f5f5"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

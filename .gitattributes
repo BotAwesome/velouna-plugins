@@ -1,0 +1,4 @@
+# Signed files must reach the web byte for byte: no line-ending conversion.
+repo.json -text
+repo.json.sig -text
+*.velounaplugin binary
