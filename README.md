@@ -11,7 +11,7 @@ Velouna ships with this repo already added: open **Settings → Extensions → C
 
 Anyone can publish plugins in a repo of their own, and you can add any repo to Velouna by its link under **Settings → Extensions → Repos**.
 
-Want to write one? The examples and the documentation are in [example-plugins](https://github.com/BotAwesome/example-plugins): [your first visualizer](https://github.com/BotAwesome/example-plugins/blob/main/docs/getting-started.md), [your first Lua plugin](https://github.com/BotAwesome/example-plugins/blob/main/docs/lua-plugins.md#your-first-lua-plugin) and [all documentation](https://github.com/BotAwesome/example-plugins/blob/main/docs/README.md).
+Want to write one? The examples and the documentation are in [velouna-example-plugins](https://github.com/BotAwesome/velouna-example-plugins): [your first visualizer](https://github.com/BotAwesome/velouna-example-plugins/blob/main/docs/getting-started.md), [your first Lua plugin](https://github.com/BotAwesome/velouna-example-plugins/blob/main/docs/lua-plugins.md#your-first-lua-plugin) and [all documentation](https://github.com/BotAwesome/velouna-example-plugins/blob/main/docs/README.md).
 
 ## What is in here
 
@@ -21,7 +21,7 @@ repo.json, repo.json.sig         the signed index Velouna reads
 packages/<id>/<id>-<version>.velounaplugin   built packages
 ```
 
-`repo.json`, its signature and `packages/` are built from `plugins/`. Never edit them by hand: Velouna checks the signature and refuses a changed index. [What the signature does](https://github.com/BotAwesome/example-plugins/blob/main/docs/repos.md#what-the-signature-does-and-what-it-doesnt).
+`repo.json`, its signature and `packages/` are built from `plugins/`. Never edit them by hand: Velouna checks the signature and refuses a changed index. [What the signature does](https://github.com/BotAwesome/velouna-example-plugins/blob/main/docs/repos.md#what-the-signature-does-and-what-it-doesnt).
 
 ## License
 
